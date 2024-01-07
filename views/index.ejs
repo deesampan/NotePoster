@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inter:wght@100&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div-title">
+    <h1 class="title">Post your note📝</h1>
+    </div>
+
+    <div class="div-form">
+        <form action="/send" method="post">
+            <div class="notebar">
+                <div class="choicebar">
+                    <div>
+                        <label for="topic">Your topic🖊</label>
+                        <input type="text" id="topic" name="topicer" placeholder="Name of topic"><br><br>
+                        
+                        <input type="radio" id="mon" name="dateChoice" value="monday">
+                        <label for="mon">Monday</label><br><br>
+                        
+                        <input type="radio" id="tues" name="dateChoice" value="tuesday">
+                        <label for="tues">Tuesday</label><br><br>
+
+                        <input type="radio" id="wed" name="dateChoice" value="wednesday">
+                        <label for="wed">Wednesday</label><br><br>
+
+                        <input type="radio" id="thu" name="dateChoice" value="thursday">
+                        <label for="thu">Thursday</label><br><br>
+
+                        <input type="radio" id="fri" name="dateChoice" value="friday">
+                        <label for="fri">Friday</label><br><br>
+
+                        <input type="radio" id="sat" name="dateChoice" value="saturday">
+                        <label for="sat">Saturday</label><br><br>
+
+                        <input type="radio" id="sun" name="dateChoice" value="sunday">
+                        <label for="sun">Sunday</label><br><br>
+                    </div>
+                </div>
+                <div class="notehere">
+                    <div class="note-content">
+                        <p>Your content</p>
+                        <textarea id="content" name="contenter" rows="0" cols="0"></textarea>
+                    </div>
+                    <div class="div-submit">
+                        <input type="submit" value="Post">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="div-middle">
+        <h1>Your Note❤</h1>
+    </div>
+
+    <div class="postlistbar">
+        
+        <% if (locals.data){%>
+            <% for(var i=0; i<data.length;i++){%>
+                <div class="postbar">
+                    <h1 style="text-transform: capitalize;"><%= data[i].title%> : <%= data[i].dateChoice%></h1>
+                    <p><%= data[i].content%></p>
+                </div>
+            <%}%>
+        <% }%>
+    </div>
+</body>
+</html>
