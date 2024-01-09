@@ -23,6 +23,22 @@ app.get("/send",(req,res)=>{
     res.redirect("/");
 });
 
+app.post("/delete",(req,res)=>{
+    console.log(data);
+    console.log(req.body);
+    
+    for(var i = 0; i< data.length;i++){
+        if (data[i].title === req.body.delName){
+            console.log("yes!! its at : ", i);
+            data.splice(i,1);
+        }
+    }
+
+    console.log(data);
+
+    res.render("index.ejs",{data: data});
+});
+
 app.post("/send",(req,res)=>{
     
     if (req.body.dateChoice === undefined){

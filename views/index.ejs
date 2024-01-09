@@ -68,6 +68,10 @@
                 <div class="postbar">
                     <h1 style="text-transform: capitalize;"><%= data[i].title%> : <%= data[i].dateChoice%></h1>
                     <p><%= data[i].content%></p>
+                    <form action="/delete" method="post">
+                        <input type="hidden" id="delId" name="delName" value="<%= data[i].title %>">
+                        <input type="submit" id="delBut" name="delbutton" value="Delete Post">
+                    </form>
                 </div>
             <%}%>
         <% }%>
